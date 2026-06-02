@@ -71,6 +71,7 @@ def main(argv=None):
                   f"(each a set linked, directly or transitively, through shared "
                   f"{args.group!r}):")
             for i, c in enumerate(comps, 1):
+                # show up to 8 members per group; summarise the rest
                 shown = ", ".join(map(str, c[:8]))
                 more = f", ... (+{len(c) - 8} more)" if len(c) > 8 else ""
                 print(f"  group {i}: {len(c)} accounts  [{shown}{more}]")

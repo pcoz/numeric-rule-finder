@@ -14,6 +14,7 @@ CSV = str(HERE / "ledger.csv")
 
 
 def _run(argv):
+    """Invoke the CLI in-process and capture what it prints to stdout."""
     buf = io.StringIO()
     with redirect_stdout(buf):
         main(argv)
@@ -21,11 +22,13 @@ def _run(argv):
 
 
 def test_groups_cli_finds_three_books():
+    """`groups` recovers the ledger's three independent books from the structure."""
     out = _run(["groups", CSV, "--group", "txn_id", "--account", "account"])
     assert "3 independent groups" in out
     assert "cash" in out and "inventory" in out and "wages_payable" in out
 
 
 def test_check_cli_balances():
+    """`check` confirms every transaction nets to zero on the same file."""
     out = _run(["check", CSV, "--group", "txn_id", "--amount", "amount"])
     assert "balance" in out.lower()
