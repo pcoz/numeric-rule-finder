@@ -3,12 +3,10 @@
 An exact, dependency-light library that **discovers** the conservation laws latent
 in structured movement/transaction data, instead of making you declare one.
 
-It grew from the CBRC ("Conservation-Based Reconciliation and Compression") idea:
-CBRC makes you declare the quantity that should balance and then folds it. This
-library inverts that — it recovers the **complete lattice of independent
-conservation laws the data actually obeys** (including laws nobody declared),
-finds where they break, types each break, and **honest-stops** when there is no
-structure to exploit.
+You declare nothing. It recovers the **complete lattice of independent
+conservation laws the data actually obeys** — including laws nobody wrote down —
+finds where they break, types each break (a re-attributable slip vs. a genuine
+hole), and **honest-stops** when there is no structure to exploit.
 
 ## Two front doors
 
