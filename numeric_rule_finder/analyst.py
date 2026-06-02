@@ -261,6 +261,23 @@ class Reconciler:
             modular_findings=modular,
         )
 
+    def independent_groups(self, account, group):
+        """The exact independent groups in the data: maximal sets of accounts
+        linked -- directly OR transitively -- through shared groups, with no
+        connection to any other set.
+
+        One linear union-find pass. No clustering, no embeddings, no distance
+        metric, no choice of ``k`` -- and the answer is exact and deterministic.
+        Two accounts land in the same group iff a chain of shared transactions
+        connects them, so groups that are merely *sparsely* connected (never a
+        single transaction touching all members) are still recovered whole --
+        precisely where similarity-based clustering fragments them.
+
+        Returns a list of sorted account lists, largest group first.
+        """
+        comps = self._account_components(account, group)
+        return sorted(comps, key=lambda c: (-len(c), str(c[0]) if c else ""))
+
     def _modular_escalation(self, account, group, amount):
         """Nothing balanced over Q -> try integer/modular conservation (SNF
         torsion) and translate any finding into plain language."""
