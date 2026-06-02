@@ -1,4 +1,4 @@
-[🏠 Home](../index.md) · [← Previous: This method vs. ML](06_vs_ml.md) · Next →
+[🏠 Home](../index.md) · [← Previous: Raw XML showcase](07_xml_showcase.md) · Next →
 
 ---
 
@@ -129,4 +129,4 @@ with no sampling.
 
 ---
 
-[🏠 Home](../index.md) · [← Previous: This method vs. ML](06_vs_ml.md) · Next →
+[🏠 Home](../index.md) · [← Previous: Raw XML showcase](07_xml_showcase.md) · Next →

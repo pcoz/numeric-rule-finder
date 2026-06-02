@@ -27,6 +27,7 @@ then takes you through three runnable worked examples — each shown with its
 | 5 | [Worked example — The Meridian Tontine: five rungs to a verdict *(the machinery)*](chapters/04_example_meridian.md) |
 | 6 | [Where it fits, and how to use it on your own data](chapters/05_where_it_fits.md) |
 | 7 | [This method vs. machine learning](chapters/06_vs_ml.md) *(two head-to-heads, real results)* |
+| 8 | [Showcase — raw XML in, hidden laws out](chapters/07_xml_showcase.md) |
 | A | [Appendix — The mathematics](chapters/A_appendix_mathematics.md) *(the hard maths, in full)* |
 
 ---

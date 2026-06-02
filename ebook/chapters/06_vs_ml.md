@@ -1,4 +1,4 @@
-[🏠 Home](../index.md) · [← Previous: Where it fits](05_where_it_fits.md) · [Next: Appendix →](A_appendix_mathematics.md)
+[🏠 Home](../index.md) · [← Previous: Where it fits](05_where_it_fits.md) · [Next: Raw XML showcase →](07_xml_showcase.md)
 
 ---
 
@@ -164,4 +164,4 @@ the residual typing is exact — is in the [Appendix](A_appendix_mathematics.md)
 
 ---
 
-[🏠 Home](../index.md) · [← Previous: Where it fits](05_where_it_fits.md) · [Next: Appendix →](A_appendix_mathematics.md)
+[🏠 Home](../index.md) · [← Previous: Where it fits](05_where_it_fits.md) · [Next: Raw XML showcase →](07_xml_showcase.md)
