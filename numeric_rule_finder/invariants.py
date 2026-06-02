@@ -121,6 +121,53 @@ def _integerize(vec):
     return ints
 
 
+# ---------- fast modular rank (scales to large matrices) ------------------
+
+# Large primes < 2**31 (machine ints stay fast; products fit comfortably).
+_RANK_PRIMES = (2147483647, 2147483629, 2147483587)
+
+
+def _row_integerize(row):
+    """Clear denominators in one row (scaling a row leaves its null space
+    unchanged, so this preserves y^T S = 0)."""
+    L = reduce(lcm, (x.denominator for x in row), 1)
+    return [int(x * L) for x in row]
+
+
+def _modular_rank(int_rows, n_cols, p):
+    """Rank over F_p, by Gaussian elimination in machine integers (no rational
+    blow-up). O(rows * cols * min(rows, cols)) with small constants."""
+    M = [[x % p for x in row] for row in int_rows]
+    rows = len(M)
+    r = 0
+    for c in range(n_cols):
+        piv = next((i for i in range(r, rows) if M[i][c]), None)
+        if piv is None:
+            continue
+        M[r], M[piv] = M[piv], M[r]
+        inv = pow(M[r][c], p - 2, p)                     # Fermat inverse
+        Mr = M[r] = [(x * inv) % p for x in M[r]]
+        for i in range(rows):
+            if i != r and M[i][c]:
+                f = M[i][c]
+                M[i] = [(a - f * b) % p for a, b in zip(M[i], Mr)]
+        r += 1
+        if r == rows:
+            break
+    return r
+
+
+def modular_rank(int_rows, n_cols, primes=_RANK_PRIMES):
+    """Exact Q-rank of an integer matrix, computed the fast way.
+
+    rank over Q >= rank over F_p for every prime, with equality for all but
+    finitely many primes; the max over several large primes is therefore the
+    exact Q-rank in every realistic case (and always a rigorous lower bound).
+    In particular `modular_rank == n_cols` *certifies* full column rank over Q.
+    """
+    return max(_modular_rank(int_rows, n_cols, p) for p in primes)
+
+
 # ---------- Farkas: minimal semipositive (P-)invariants -------------------
 
 def _minimal_support(vectors):
@@ -233,6 +280,17 @@ def discover_invariants(records, entity_key, event_key, qty_key):
     ne = len(entities)
     # left null space of S = null space of S^T (rows = events, cols = entities)
     ST = [[S[e][v] for e in entities] for v in events]
+
+    # Fast path: if S^T has full column rank over a single F_p it has full rank
+    # over Q, so there is provably NO conservation law -- decide honest-stop in
+    # machine integers and skip the expensive exact rational RREF + Farkas. One
+    # prime certifies (rank_Q >= rank_p = ne >= rank_Q); a deficient prime only
+    # forfeits the shortcut and falls through to the exact path, never wrong.
+    if ST and _modular_rank([_row_integerize(row) for row in ST], ne,
+                            _RANK_PRIMES[0]) == ne:
+        return Discovery(entities=entities, events=events, rank=ne, n_laws=0,
+                         laws=[], minimal_semipositive=[])
+
     basis = _nullspace(ST, ne)
 
     laws = []

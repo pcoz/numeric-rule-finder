@@ -24,7 +24,8 @@ hole), and **honest-stops** when there is no structure to exploit.
 * **On your own data** — `python -m numeric_rule_finder.cli` (or
   `from numeric_rule_finder import Reconciler`); hand it a CSV and two column names.
 * **What you get** — what balances, where it breaks and probably why, and any
-  hidden *separate sub-systems*.
+  hidden *separate sub-systems* — found exactly in one pass (`independent_groups`,
+  or the `groups` command).
 * **It's intelligent** — when ordinary balancing finds nothing, it silently
   escalates to the deeper maths (e.g. modular/parity structure) and reports it in
   plain words.
@@ -43,7 +44,7 @@ unchanged (the conservation laws), then measures exactly where they break. It
 climbs only as far as it needs:
 
 * **balance & structure** — which groups don't net out; which buckets form hidden
-  *separate books*;
+  *separate books* (the exact independent groups, in one linear pass);
 * **modular laws** — patterns invisible to ordinary arithmetic ("moves only in
   cases of 12", parity), via Smith Normal Form;
 * **typed residuals** — is a break re-attributable (a *coboundary*) or a genuine
@@ -53,9 +54,12 @@ climbs only as far as it needs:
 * **substrate generality** — the same engine over ℤ, ℚ, 𝔽ₚ, and ℚ[t]
   (parametric, rate-dependent laws).
 
-Everything is exact (integer/rational arithmetic, never floating point). **The
-actual mathematics** — definitions, theorems, the `coker(S)` / `H¹` residual
-typing, Smith Normal Form, and a map of the code — is in the ebook
+Everything is exact (integer/rational arithmetic, never floating point) — and it
+scales: a modular-rank fast path certifies the *honest stop* (no conservation
+structure) in machine-integer arithmetic, skipping the exact rational solve where
+there is nothing to find. **The actual mathematics** — definitions, theorems, the
+`coker(S)` / `H¹` residual typing, Smith Normal Form, and a map of the code — is
+in the ebook
 **[Appendix — The mathematics](https://github.com/pcoz/numeric-rule-finder/blob/main/ebook/chapters/A_appendix_mathematics.md)**.
 
 ## Real data carries more than one law
@@ -95,7 +99,8 @@ reproducible head-to-heads (all walked through in Chapter 7 of the [ebook](https
 
 ```bash
 pip install -e .                                      # optional (pure-stdlib core)
-python -m numeric_rule_finder.cli check data.csv --group txn_id --amount amount
+python -m numeric_rule_finder.cli check  data.csv --group txn_id --amount amount
+python -m numeric_rule_finder.cli groups data.csv --group txn_id --account account  # exact independent groups
 python examples/northwind_close/close_the_books.py    # a worked example
 python examples/gamut/gamut_demo.py                   # the same engine across domains
 python -m pytest tests examples -q                    # the suite

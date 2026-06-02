@@ -1,4 +1,4 @@
-[🏠 Home](../index.md) · [← Previous: Raw XML showcase](07_xml_showcase.md) · Next →
+[🏠 Home](../index.md) · [← Previous: One engine, many number systems](08_substrate.md) · Next →
 
 ---
 
@@ -92,27 +92,12 @@ is the obstruction to a single global reconciliation (`cohomology.discrepancy_co
 
 ## A.6 Broadening the substrate: any Euclidean domain
 
-The same null-space and SNF code runs over any **Euclidean domain**
-(`euclidean.py`, `generic_linalg.py`):
-
-| domain | what conservation means there |
-|---|---|
-| `ℚ` | the additive baseline |
-| `𝔽ₚ` | conservation modulo a prime `p` |
-| `ℤ` | exact integer laws **plus** modular (torsion) laws |
-| `ℚ[t]` | **parametric** conservation — laws as functions of a parameter |
-
-The three views interlock by one identity (`substrate.substrate_spectrum`):
-
-$$ \dim_{\mathbb F_p}(\text{laws}) \;=\; \dim_{\mathbb Q}(\text{laws})
-\;+\; \#\{\, d_i : p \mid d_i \,\}. $$
-
-**Parametric conservation.** Let `S` depend on a parameter `t` (a rate, a coupling,
-a clock). SNF over `ℚ[t]` yields invariant **polynomials**; their roots are
-exactly the parameter values where conservation degenerates
-(`substrate.parametric_conservation`). For example, two coupled flows conserve value
-only at `t = ±1` — the roots of the invariant factor `t² − 1` — computed exactly,
-with no sampling.
+**Moved to [Chapter 9 · One engine, many number systems](08_substrate.md),** so the
+formal core sits beside its worked example. There you'll find the Euclidean-domain
+table (ℚ, 𝔽ₚ, ℤ, ℚ[t]), the 𝔽ₚ dimension identity
+`dim_𝔽ₚ = dim_ℚ + #{ dᵢ : p | dᵢ }`, and parametric conservation over ℚ[t] (laws as
+polynomials in a parameter; their roots are the degeneracy loci) — run end to end
+in `examples/substrate/`.
 
 ## A.7 Map of the code
 
@@ -129,4 +114,4 @@ with no sampling.
 
 ---
 
-[🏠 Home](../index.md) · [← Previous: Raw XML showcase](07_xml_showcase.md) · Next →
+[🏠 Home](../index.md) · [← Previous: One engine, many number systems](08_substrate.md) · Next →

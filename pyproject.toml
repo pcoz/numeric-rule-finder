@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "numeric-rule-finder"
-version = "0.1.1"
+version = "0.1.2"
 description = "Discover the conservation/balance rules a set of numbers must satisfy, find where they break, and honest-stop when there is no such structure."
 readme = "README.md"
 requires-python = ">=3.10"

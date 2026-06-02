@@ -1,0 +1,13 @@
+txn_id,account,amount
+T1,cash,100
+T1,revenue,-100
+T2,expense,40
+T2,cash,-40
+T3,inventory,200
+T3,cogs,-200
+T4,cogs,50
+T4,inventory,-50
+T5,wages_payable,-300
+T5,wage_expense,300
+T6,wage_expense,150
+T6,wages_payable,-150
