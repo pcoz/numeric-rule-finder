@@ -73,15 +73,21 @@ per-SKU stock — not just the one obvious balance:
 | a shared-resource / mutex process | **3** | each client's work-item **plus** the resource invariant |
 | data with no balancing structure | **0** | **honest stop** — it refuses to invent a reconciliation |
 
-And it goes further than ML where the signal is an exact law: it beats an
-Isolation Forest outright on skim fraud, and *feeds* a Random Forest as an exact
-pre-filter + feature — see [`examples/fraud_vs_ml/`](examples/fraud_vs_ml/) and
-[`examples/ml_assist/`](examples/ml_assist/).
+## With and against machine learning
+
+Where the signal is an exact law this beats statistical anomaly detection; where
+the job is partly fuzzy, it makes the model's job easier. Two reproducible
+head-to-heads (both walked through in Chapter 7 of the [ebook](ebook/index.md)):
+
+* it beats an Isolation Forest outright on skim fraud —
+  [`examples/fraud_vs_ml/`](examples/fraud_vs_ml/);
+* it *feeds* a Random Forest as an exact pre-filter + feature, lifting its score —
+  [`examples/ml_assist/`](examples/ml_assist/).
+
+## Run
 
 `numeric_rule_finder` has **no third-party dependencies**; `petra_adapter` uses
 `petra-nn` *only* to read Petri nets, and the ML examples use `scikit-learn`.
-
-## Run
 
 ```bash
 pip install -e .                                      # optional (pure-stdlib core)
