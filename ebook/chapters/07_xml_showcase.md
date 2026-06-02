@@ -103,11 +103,11 @@ file*, with no rates, no labels, and no configuration.
 > The takeaway: the conservation laws were always sitting inside the data. The
 > library's job is simply to read them off — whatever shape the data arrives in.
 
-This chapter changed the *front door* — the file format. The next one goes
-deeper and changes the *number system* the laws live in, running the very same
-engine over whole numbers, finite fields, and even a tunable parameter. The
-mathematics behind "unchanging total = null space of the movements" is in the
-[Appendix](A_appendix_mathematics.md).
+The mathematics behind "unchanging total = null space of the movements" is in the
+[Appendix](A_appendix_mathematics.md). And the engine isn't confined to ordinary
+arithmetic, either: the final chapter runs it over whole numbers, finite fields,
+and a tunable parameter — number systems in which a conservation law can switch on
+and off as you turn a dial.
 
 ---
 

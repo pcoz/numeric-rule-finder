@@ -6,9 +6,11 @@
 
 The worked examples so far have spanned three audiences: an analyst closing a
 month, a platform team catching exploits with no rules, and an architect watching
-the full machinery run. (Two more follow — a machine-learning comparison and a
-raw-XML showcase.) All of them are the same engine, pointed at different data and
-asked different questions.
+the full machinery run. (Three more follow — a machine-learning comparison, a
+raw-XML showcase, and a tour across number systems.) All of them are the same
+engine, pointed at different data and asked different questions. This chapter is
+the practical interlude: where the tool fits, and how to turn it on your own
+table.
 
 ## It travels across domains
 
@@ -38,6 +40,7 @@ Then, from the command line:
 
 ```bash
 python -m numeric_rule_finder.cli check    yourdata.csv --group txn_id --amount amount
+python -m numeric_rule_finder.cli groups   yourdata.csv --group txn_id --account account
 python -m numeric_rule_finder.cli books    yourdata.csv --group txn_id --amount amount --account account
 python -m numeric_rule_finder.cli report   yourdata.csv --group txn_id --amount amount --account account
 python -m numeric_rule_finder.cli compare  system_a.csv system_b.csv --group txn_id --amount amount
@@ -69,6 +72,10 @@ mathematics, and it is all available to inspect rather than take on faith. The
 [Appendix](A_appendix_mathematics.md) lays out the machinery: conservation laws as
 null spaces, modular structure via Smith Normal Form, residual typing through the
 cokernel and `H¹`, and the parametric extension over `ℚ[t]`.
+
+The remaining chapters sharpen the picture from the outside in: first how this
+method sits beside machine learning, then two inputs that show how far the same
+idea travels. We start with the comparison everyone asks about.
 
 ---
 

@@ -10,7 +10,8 @@ hole), and **honest-stops** when there is no structure to exploit.
 
 > 📖 **There's a book.** [**Read the ebook →**](https://github.com/pcoz/numeric-rule-finder/blob/main/ebook/index.md) — what it
 > is, how it works, runnable worked examples (with real output), three
-> machine-learning head-to-heads, a raw-XML showcase, and a mathematics appendix.
+> machine-learning head-to-heads, a raw-XML showcase, a tour across number
+> systems, and a mathematics appendix.
 
 ## Two front doors
 

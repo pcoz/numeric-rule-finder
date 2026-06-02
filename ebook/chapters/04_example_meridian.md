@@ -98,9 +98,11 @@ Rungs 1 → 3 → 4 are one fact, seen at three depths. No single call delivers 
 verdict; the *chain* does, because each rung escalates only when the one below it
 comes up short.
 
-For the definitions and theorems underneath — null spaces, Smith Normal Form,
-the cokernel and `H¹`, and the parametric extension — see the
-[Appendix](A_appendix_mathematics.md).
+That is the engine at full stretch — every depth of the ladder exercised on one
+stubborn `5`. The next chapter comes back down to earth: where a tool like this
+belongs in your stack, and how to point it at your own data. For the definitions
+and theorems underneath — null spaces, Smith Normal Form, the cokernel and `H¹`,
+and the parametric extension — see the [Appendix](A_appendix_mathematics.md).
 
 ---
 
