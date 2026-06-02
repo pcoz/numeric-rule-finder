@@ -8,6 +8,10 @@ conservation laws the data actually obeys** — including laws nobody wrote down
 finds where they break, types each break (a re-attributable slip vs. a genuine
 hole), and **honest-stops** when there is no structure to exploit.
 
+> 📖 **There's a book.** [**Read the ebook →**](ebook/index.md) — what it is, how
+> it works, three worked examples (with real output), a comparison with machine
+> learning, and a mathematics appendix.
+
 ## Two front doors
 
 **Just want answers? (no maths).**
