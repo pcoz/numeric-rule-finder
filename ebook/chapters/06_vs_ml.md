@@ -14,8 +14,9 @@ violations as deductions. So the rule of thumb is sharp:
 - Reach for **machine learning** when "normal" is statistical, behavioural, or
   distributional, and there is no exact law to lean on.
 
-The two worked examples below make the boundary concrete. Both run a real
-scikit-learn model for comparison; both are reproducible.
+The three worked examples below make the boundary concrete — two about *accuracy*,
+one about *effort*. Each runs a real scikit-learn model for comparison, and all are
+reproducible.
 
 ---
 
@@ -88,7 +89,54 @@ at, and **together they beat either alone**.
 
 ---
 
-## 7.3 When to *definitely* use ML — and not this method
+## 7.3 When the exact answer is the whole job
+
+> **Example:** [`examples/grouping_vs_ml/`](../../examples/grouping_vs_ml/README.md) ·
+> **Run:** `python examples/grouping_vs_ml/find_groups.py`
+
+In the first two examples ML competed with the law on *accuracy*. Here it competes
+on *effort* — and loses just as badly. "Find the natural groups in this data" is
+one of the most common analyst asks, and the reflex is to **cluster**: featurize,
+run KMeans, sweep the number of clusters `k`, score each `k` with silhouette or
+stability. At real scale — millions of entities, graph embeddings, `k`-selection,
+repeated stability runs — that is a job you start and leave running for hours.
+
+But when "belong together" means *connected through shared transactions*, the
+groups are not a statistical guess at all. They are the **exact connected
+components** of the data, and one linear pass recovers them — no embedding, no
+distance metric, no `k`. We put the two on a ledger of eight genuinely independent
+"books", each only *sparsely* connected (no single transaction touches all its
+members):
+
+```text
+600 accounts across 8 genuinely independent books (each only sparsely connected), 638 transactions.
+
+THIS LIBRARY  (direct, exact -- one union-find pass):
+  found 8 groups in 0.8 ms   -- EXACTLY the true books, and no k to choose.
+
+CLUSTERING  (featurize accounts + KMeans, sweep k by silhouette):
+  chose k=2, took 2.8 s, agreement with the true books ARI=0.00  (fragmented the books).
+```
+
+Clustering only sees *direct* co-occurrence, so it shatters each sparsely-linked
+book into the little neighbourhoods that happen to transact together — and the
+silhouette sweep, with nothing clean to latch onto, collapses to two blobs that
+bear no relation to the truth (ARI 0.00). The exact method follows the **chains**:
+A pays B, B pays C, so A, B and C are one group, however sparse the links. That is
+the connected-components relation, computed exactly in time linear in the
+transactions — here about 3,600× faster than the sweep, and perfectly correct.
+
+An honest note: a *graph-aware* model — spectral clustering, or a node2vec
+embedding — would recover these components far better than raw-feature KMeans. But
+that is exactly the heavy machinery that becomes the multi-hour job at scale, and
+it still only *approximates* what union-find returns exactly for free. And the two
+compose: if you then want to cluster *behaviour within* a book, the library hands
+the model clean, exactly-bounded groups to work inside, so it never has to
+rediscover the partition.
+
+---
+
+## 7.4 When to *definitely* use ML — and not this method
 
 Reach for machine learning, and leave this library out, whenever the answer you
 need is a learned pattern rather than a hard invariant. Concretely:
@@ -113,7 +161,7 @@ need is a learned pattern rather than a hard invariant. Concretely:
 If most of your problem looks like the list above, don't force this library onto
 it — it will honest-stop, which is the right answer, but it isn't *your* answer.
 
-## 7.4 When to *definitely* use this method — and not ML
+## 7.5 When to *definitely* use this method — and not ML
 
 Reach for this library, and skip the model, when the truth is an exact law and a
 violation is meaningful by definition:
@@ -132,7 +180,7 @@ violation is meaningful by definition:
 - **Hidden structure matters.** Separate books, modular invariants ("moves only in
   cases of 12"), mutually-impossible reconciliations — ML has no notion of these.
 
-## 7.5 When a combination is the right answer
+## 7.6 When a combination is the right answer
 
 The strongest architecture is often both, with this method **in front of** the
 model. Combine them when:

@@ -9,7 +9,7 @@ finds where they break, types each break (a re-attributable slip vs. a genuine
 hole), and **honest-stops** when there is no structure to exploit.
 
 > 📖 **There's a book.** [**Read the ebook →**](https://github.com/pcoz/numeric-rule-finder/blob/main/ebook/index.md) — what it
-> is, how it works, runnable worked examples (with real output), two
+> is, how it works, runnable worked examples (with real output), three
 > machine-learning head-to-heads, a raw-XML showcase, and a mathematics appendix.
 
 ## Two front doors
@@ -76,13 +76,17 @@ per-SKU stock — not just the one obvious balance:
 ## With and against machine learning
 
 Where the signal is an exact law this beats statistical anomaly detection; where
-the job is partly fuzzy, it makes the model's job easier. Two reproducible
-head-to-heads (both walked through in Chapter 7 of the [ebook](https://github.com/pcoz/numeric-rule-finder/blob/main/ebook/index.md)):
+the job is partly fuzzy, it makes the model's job easier; and where the answer is
+an exact structure, it replaces a slow unsupervised job outright. Three
+reproducible head-to-heads (all walked through in Chapter 7 of the [ebook](https://github.com/pcoz/numeric-rule-finder/blob/main/ebook/index.md)):
 
 * it beats an Isolation Forest outright on skim fraud —
   [`examples/fraud_vs_ml/`](https://github.com/pcoz/numeric-rule-finder/tree/main/examples/fraud_vs_ml/);
 * it *feeds* a Random Forest as an exact pre-filter + feature, lifting its score —
-  [`examples/ml_assist/`](https://github.com/pcoz/numeric-rule-finder/tree/main/examples/ml_assist/).
+  [`examples/ml_assist/`](https://github.com/pcoz/numeric-rule-finder/tree/main/examples/ml_assist/);
+* it finds the exact groups in one pass — `Reconciler.independent_groups` — where a
+  clustering `k`-sweep is thousands of times slower *and* wrong —
+  [`examples/grouping_vs_ml/`](https://github.com/pcoz/numeric-rule-finder/tree/main/examples/grouping_vs_ml/).
 
 ## Run
 
