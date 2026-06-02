@@ -11,20 +11,39 @@ requires-python = ">=3.10"
 license = { file = "LICENSE" }
 authors = [{ name = "Edward Chalk", email = "edward.chalk@sapientronic.ai" }]
 keywords = ["reconciliation", "conservation-laws", "anomaly-detection",
-            "invariants", "ledger", "balance", "audit"]
+            "invariants", "ledger", "balance", "audit", "data-quality"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Financial and Insurance Industry",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+    "Topic :: Office/Business :: Financial :: Accounting",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Operating System :: OS Independent",
+]
 dependencies = []   # the core is pure standard library
 
 [project.optional-dependencies]
-petri = ["petra-nn"]        # only for the optional Petri-net adapter
-ml = ["scikit-learn"]       # only for the machine-learning comparison examples
+petri = ["petra-nn"]                       # only for the optional Petri-net adapter
+ml = ["scikit-learn", "numpy"]             # only for the machine-learning comparison examples
 test = ["pytest"]
+dev = ["pytest", "scikit-learn", "numpy"]
 
 [project.urls]
 Homepage = "https://github.com/pcoz/numeric-rule-finder"
 Repository = "https://github.com/pcoz/numeric-rule-finder"
+Documentation = "https://github.com/pcoz/numeric-rule-finder/blob/main/ebook/index.md"
+Issues = "https://github.com/pcoz/numeric-rule-finder/issues"
 
 [project.scripts]
 numeric-rule-finder = "numeric_rule_finder.cli:main"
 
+# Ship only the importable package in the wheel; the examples, ebook, and tests
+# live on GitHub (linked from the README) and are not part of the distribution.
 [tool.setuptools]
 packages = ["numeric_rule_finder"]
