@@ -17,14 +17,10 @@ intent, not a promise of dates.
   `cli_groups` — plus ebook chapters for the ML head-to-heads, the raw-XML
   showcase, and substrate generality.
 - **PyPI trusted publishing** — tag-triggered `publish.yml` now auto-publishes via
-  OIDC (no token), verified green on `v0.1.4`.
-
-## Near-term (housekeeping)
-
-- **Test CI.** The repo runs only `publish.yml`; add a pytest workflow across
-  Python 3.10–3.13 so the suite runs on every push.
-- **`CHANGELOG.md`** and a **`py.typed`** marker (the package has type hints but
-  ships no marker, so downstream type-checkers ignore them).
+  OIDC (no token), verified green on `v0.1.4` and used for real from `v0.1.5`.
+- **Test CI, `py.typed`, and `CHANGELOG.md`** — the suite runs on Python 3.10–3.13
+  on every push; a PEP 561 marker ships so type-checkers honour the hints; a
+  changelog tracks releases.
 
 ## Capability
 
