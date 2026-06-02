@@ -16,12 +16,11 @@ intent, not a promise of dates.
 - **New worked examples** — `grouping_vs_ml`, `xml_moieties`, `scale`,
   `cli_groups` — plus ebook chapters for the ML head-to-heads, the raw-XML
   showcase, and substrate generality.
+- **PyPI trusted publishing** — tag-triggered `publish.yml` now auto-publishes via
+  OIDC (no token), verified green on `v0.1.4`.
 
 ## Near-term (housekeeping)
 
-- **Finish PyPI trusted publishing.** Tag pushes build but fail at the publish
-  step until the one-time PyPI trusted-publisher setup is completed; releases are
-  currently done manually via twine.
 - **Test CI.** The repo runs only `publish.yml`; add a pytest workflow across
   Python 3.10–3.13 so the suite runs on every push.
 - **`CHANGELOG.md`** and a **`py.typed`** marker (the package has type hints but
