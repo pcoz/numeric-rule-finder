@@ -1,0 +1,6 @@
+move_id,bin,qty
+m1,bin_a,2
+m2,bin_a,-4
+m3,bin_b,6
+m4,bin_b,2
+m5,bin_a,2

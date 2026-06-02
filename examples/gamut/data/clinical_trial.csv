@@ -1,0 +1,13 @@
+site,disposition,patients
+SiteA,enrolled,50
+SiteA,completed,-30
+SiteA,withdrawn,-5
+SiteA,ongoing,-15
+SiteB,enrolled,40
+SiteB,completed,-25
+SiteB,withdrawn,-3
+SiteB,ongoing,-10
+SiteC,enrolled,33
+SiteC,completed,-20
+SiteC,withdrawn,-6
+SiteC,ongoing,-7

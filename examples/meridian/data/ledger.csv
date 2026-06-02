@@ -1,0 +1,13 @@
+payout_run,account,amount
+R1,member_escrow,-200
+R1,payout_bank,200
+R2,member_escrow,-200
+R2,payout_bank,200
+R3,member_escrow,-200
+R3,payout_bank,200
+C1,vault_chips,5
+C1,chip_reserve,-5
+C2,vault_chips,10
+C2,chip_reserve,-10
+C3,vault_chips,120
+C3,chip_reserve,-115

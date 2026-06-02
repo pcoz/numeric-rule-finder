@@ -1,0 +1,10 @@
+interval,meter,kwh
+08:00,generation,1000
+08:00,consumption,-940
+08:00,loss,-60
+09:00,generation,1000
+09:00,consumption,-900
+09:00,loss,-60
+10:00,generation,1200
+10:00,consumption,-1130
+10:00,loss,-70

@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "numeric-rule-finder"
+version = "0.1.0"
+description = "Discover the conservation/balance rules a set of numbers must satisfy, find where they break, and honest-stop when there is no such structure."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+authors = [{ name = "Edward Chalk", email = "edward.chalk@sapientronic.ai" }]
+keywords = ["reconciliation", "conservation-laws", "anomaly-detection",
+            "invariants", "ledger", "balance", "audit"]
+dependencies = []   # the core is pure standard library
+
+[project.optional-dependencies]
+petri = ["petra-nn"]        # only for the optional Petri-net adapter
+ml = ["scikit-learn"]       # only for the machine-learning comparison examples
+test = ["pytest"]
+
+[project.urls]
+Homepage = "https://github.com/pcoz/numeric-rule-finder"
+Repository = "https://github.com/pcoz/numeric-rule-finder"
+
+[project.scripts]
+numeric-rule-finder = "numeric_rule_finder.cli:main"
+
+[tool.setuptools]
+packages = ["numeric_rule_finder"]

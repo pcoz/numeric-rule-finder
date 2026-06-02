@@ -1,0 +1,13 @@
+event,bucket,points
+n1,na_mint,-100
+n1,member_amy,100
+n2,na_mint,-50
+n2,member_ben,50
+n3,member_amy,-40
+n3,na_burn,40
+n4,member_amy,-30
+n4,member_ben,30
+u1,eu_mint,-80
+u1,member_eva,80
+u2,member_eva,-20
+u2,member_uwe,20

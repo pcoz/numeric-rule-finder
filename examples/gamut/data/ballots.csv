@@ -1,0 +1,9 @@
+precinct,category,ballots
+P1,issued,500
+P1,cast,-470
+P1,spoiled,-5
+P1,unused,-25
+P2,issued,300
+P2,cast,-280
+P2,spoiled,-4
+P2,unused,-12

@@ -1,0 +1,10 @@
+run,stage,rows
+r1,ingested,10000
+r1,loaded,-9800
+r1,rejected,-200
+r2,ingested,10000
+r2,loaded,-9700
+r2,rejected,-250
+r3,ingested,8000
+r3,loaded,-7900
+r3,rejected,-100

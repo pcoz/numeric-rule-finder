@@ -1,0 +1,14 @@
+journal,account,amount
+J1,cash,500
+J1,sales,-500
+J2,cash,300
+J2,sales,-300
+J3,refunds,50
+J3,cash,-50
+J4,cash,120
+J4,sales,-120
+J5,ic_due_from,1000
+J5,ic_due_to,-1000
+J6,ic_due_from,400
+J6,ic_due_to,-400
+J7,cash,250

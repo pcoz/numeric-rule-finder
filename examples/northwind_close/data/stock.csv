@@ -1,0 +1,6 @@
+move,bin,units
+s1,dispatch_dock,12
+s2,dispatch_dock,-24
+s3,returns_bay,36
+s4,returns_bay,12
+s5,dispatch_dock,12

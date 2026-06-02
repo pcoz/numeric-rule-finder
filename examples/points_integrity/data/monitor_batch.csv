@@ -1,0 +1,8 @@
+event,bucket,points
+m1,na_mint,-60
+m1,member_amy,60
+m2,member_amy,-25
+m2,member_ben,25
+m3,member_ben,200
+m4,member_ben,-10
+m4,na_burn,10

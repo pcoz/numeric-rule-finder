@@ -1,0 +1,13 @@
+txn_id,account,amount
+1001,cash,100.00
+1001,revenue,-100.00
+1002,cash,250.00
+1002,revenue,-250.00
+1003,expense,75.00
+1003,cash,-75.00
+1004,cash,40.00
+1004,revenue,-40.00
+2001,inventory,60.00
+2001,cogs,-60.00
+2002,inventory,30.00
+2002,cogs,-30.00
