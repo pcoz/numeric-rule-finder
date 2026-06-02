@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "numeric-rule-finder"
-version = "0.1.4"
+version = "0.1.5"
 description = "Discover the conservation/balance rules a set of numbers must satisfy, find where they break, and honest-stop when there is no such structure."
 readme = "README.md"
 requires-python = ">=3.10"
@@ -47,3 +47,7 @@ numeric-rule-finder = "numeric_rule_finder.cli:main"
 # live on GitHub (linked from the README) and are not part of the distribution.
 [tool.setuptools]
 packages = ["numeric_rule_finder"]
+
+# Ship the PEP 561 marker so downstream type-checkers honour our type hints.
+[tool.setuptools.package-data]
+numeric_rule_finder = ["py.typed"]
