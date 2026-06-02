@@ -4,10 +4,11 @@
 
 # 6 · Where it fits, and how to use it on your own data
 
-Three examples, three audiences: an analyst closing a month, a platform team
-catching exploits with no rules, and an architect watching the full machinery run.
-All three are the same engine, pointed at different data and asked different
-questions.
+The worked examples so far have spanned three audiences: an analyst closing a
+month, a platform team catching exploits with no rules, and an architect watching
+the full machinery run. (Two more follow — a machine-learning comparison and a
+raw-XML showcase.) All of them are the same engine, pointed at different data and
+asked different questions.
 
 ## It travels across domains
 

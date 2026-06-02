@@ -30,8 +30,8 @@ space; its dimension is the number of independent laws (`invariants.discover_inv
 
 - **Interpretable generators.** The nonnegative laws — *"this combination of
   buckets is conserved"* — are the **minimal semipositive invariants**, computed
-  by the **Farkas algorithm** (these are the P-invariants of a Petri net, the
-  conserved moieties of a reaction network).
+  by the **Farkas algorithm** (the same objects known elsewhere as the
+  P-invariants of a Petri net, or the conserved totals of a reaction network).
 - **Separate books.** Buckets that never co-occur in an event form disconnected
   components; disjoint-support laws reveal independent sub-systems
   (`Reconciler.what_balances`).

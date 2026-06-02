@@ -11,8 +11,9 @@ break. When there is no such structure to lean on, it says so and stops, rather
 than inventing an answer.
 
 This book explains the tool space it occupies, walks through how it works, and
-then takes you through three runnable worked examples — each shown with its
-**actual output**.
+then takes you through its runnable worked examples — a month-end close, a
+rules-free fraud catch, a five-rung investigation, two machine-learning
+head-to-heads, and a raw-XML showcase — each shown with its **actual output**.
 
 ---
 
@@ -38,13 +39,19 @@ Each worked example lives in its own subfolder of the repository's
 [`examples/`](../examples/) directory — self-contained (script + data + a
 README), and runnable as-is from the repository root:
 
-| example | folder | run it |
+| chapter | example | run it |
 |---|---|---|
-| Northwind month-end close | [`examples/northwind_close/`](../examples/northwind_close/README.md) | `python examples/northwind_close/close_the_books.py` |
-| Points-economy integrity | [`examples/points_integrity/`](../examples/points_integrity/README.md) | `python examples/points_integrity/detect.py` |
-| The Meridian Tontine | [`examples/meridian/`](../examples/meridian/README.md) | `python examples/meridian/investigate.py` |
+| 3 — Northwind month-end close | [`examples/northwind_close/`](../examples/northwind_close/README.md) | `python examples/northwind_close/close_the_books.py` |
+| 4 — Points-economy integrity | [`examples/points_integrity/`](../examples/points_integrity/README.md) | `python examples/points_integrity/detect.py` |
+| 5 — The Meridian Tontine | [`examples/meridian/`](../examples/meridian/README.md) | `python examples/meridian/investigate.py` |
+| 7 — conservation beats a forest | [`examples/fraud_vs_ml/`](../examples/fraud_vs_ml/README.md) | `python examples/fraud_vs_ml/compare.py` |
+| 7 — conservation feeds a forest | [`examples/ml_assist/`](../examples/ml_assist/README.md) | `python examples/ml_assist/pipeline.py` |
+| 8 — raw-XML showcase | [`examples/xml_moieties/`](../examples/xml_moieties/README.md) | `python examples/xml_moieties/discover_moieties.py` |
 
 > Every output quoted in the chapters is the **actual** output of these scripts.
+> The repository's [`examples/`](../examples/) folder holds several more runnable
+> demos (cross-domain, integer/modular, cohomology, substrate), each in its own
+> subfolder with a README.
 
 ---
 
